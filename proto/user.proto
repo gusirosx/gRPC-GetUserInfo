@@ -1,17 +1,20 @@
 syntax = "proto3";
 
-package proto;
-
 option go_package = "/gRPC-user;gRPC_user";
 
+package proto;
+
+// The UserService service definition.
 service UserService {
   rpc GetUser(UserRequest) returns (UserResponse) {}
 }
 
+// The request message containing the username.
 message UserRequest {
   string username = 1;
 }
 
+// The response message containing the UserResponse
 message UserResponse {
   int64 id = 1;
   string name = 2;
@@ -22,6 +25,7 @@ message UserResponse {
   repeated string listURLs = 7;
 }
 
+// The response message containing the Statistics
 message Statistics {
   int64 followers = 1; 
   int64 following = 2; 

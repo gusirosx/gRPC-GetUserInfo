@@ -2,21 +2,14 @@
 
 ## How to run this example
 
-1. run the grpc server
+1. run grpc server
 
-```sh
-$ go run server/main.go
-```
-or
 ```sh
 $ make run_server
 ```
-2. run the client
 
-```sh
-$ go run client/main.go
-```
-or
+2. run gin client
+
 ```sh
 $ make run_client
 ```
@@ -27,3 +20,4 @@ $ make run_client
 
 ```sh
 $ make generate
+```

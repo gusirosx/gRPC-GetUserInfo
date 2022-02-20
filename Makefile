@@ -3,8 +3,8 @@ generate:
 
 run_server:
 	@echo "---- Running Server ----"
-	@go run server/main.go
+	@go run server/*
 
 run_client:
 	@echo "---- Running Client ----"
-	@go run client/main.go
+	@go run client/*
