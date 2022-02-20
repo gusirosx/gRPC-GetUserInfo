@@ -13,7 +13,7 @@ import (
 func main() {
 
 	var conn *grpc.ClientConn
-	conn, err := grpc.Dial(":9200", grpc.WithInsecure(), grpc.WithBlock())
+	conn, err := grpc.Dial(":50050", grpc.WithInsecure(), grpc.WithBlock())
 
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)

@@ -11,12 +11,15 @@ import (
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
+// server is used to implement Service Server
 type server struct {
 	pb.UnimplementedUserServiceServer
 }
 
+// Struct used to embed the response
 type User struct {
 	ID         int64  `json:"id"`
 	Name       string `json:"name"`
@@ -32,28 +35,7 @@ type User struct {
 	ReposURL   string `json:"repos_url"`
 }
 
-func main() {
-
-	lis, err := net.Listen("tcp", ":9200")
-	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
-	}
-
-	usr := server{}
-
-	grpcServer := grpc.NewServer()
-
-	pb.RegisterUserServiceServer(grpcServer, &usr)
-
-	log.Println("Listening on Port: 9200!")
-
-	if err := grpcServer.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %s", err)
-	}
-
-}
-
-//GetUser is get user on github
+// GetUser implements server to get the user on Github
 func (s *server) GetUser(ctx context.Context, in *pb.UserRequest) (*pb.UserResponse, error) {
 	log.Printf("Receive message from client: %s", in.Username)
 
@@ -87,4 +69,19 @@ func (s *server) GetUser(ctx context.Context, in *pb.UserRequest) (*pb.UserRespo
 		},
 		ListURLs: []string{usr.URL, usr.StarredURL, usr.ReposURL},
 	}, nil
+}
+
+func main() {
+	lis, err := net.Listen("tcp", ":50050")
+	if err != nil {
+		log.Fatalf("failed to listen on port 50050: %v", err)
+	}
+	srv := grpc.NewServer()
+	pb.RegisterUserServiceServer(srv, &server{})
+	log.Printf("server listening at %v", lis.Addr())
+	// Register reflection service on gRPC server.
+	reflection.Register(srv)
+	if err := srv.Serve(lis); err != nil {
+		log.Fatalf("failed to serve: %v", err)
+	}
 }
