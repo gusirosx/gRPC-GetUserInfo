@@ -5,18 +5,16 @@ import (
 	"log"
 
 	"golang.org/x/net/context"
-	"google.golang.org/grpc"
 
 	pb "gRPC-GetUserInfo/proto"
 )
 
 func main() {
 
-	var conn *grpc.ClientConn
-	conn, err := grpc.Dial(":50050", grpc.WithInsecure(), grpc.WithBlock())
-
+	// Set up a connection to the server.
+	conn, err := Connection()
 	if err != nil {
-		log.Fatalf("did not connect: %v", err)
+		log.Printf("failed to dial server %s: %v", *serverAddr, err)
 	}
 	defer conn.Close()
 
