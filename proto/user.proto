@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "/gRPC-user;gRPC_user";
+option go_package = "/gRPC-GetUserInfo;gRPC_GetUserInfo";
 
 package proto;
 

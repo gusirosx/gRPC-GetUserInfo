@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	pb "gRPC-user/proto"
+	pb "gRPC-GetUserInfo/proto"
 	"io/ioutil"
 	"log"
 	"net"

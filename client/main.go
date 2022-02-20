@@ -7,7 +7,7 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 
-	pb "gRPC-user/proto"
+	pb "gRPC-GetUserInfo/proto"
 )
 
 func main() {
