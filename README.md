@@ -21,7 +21,7 @@ $ make run_client
 1. use browser to test the application using the following link
 
 ```sh
-$ 'http://localhost:8080/username/gusirosx'
+http://localhost:8080/username/gusirosx
 ```
 
 # Output
