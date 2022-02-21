@@ -1,6 +1,6 @@
 # gRPC github user API
 
-This project aims to use the GitHub API to get the information from a given account via gRPC protocol and return a JSON Embeded to the client using REST protocol
+This project aims to use the GitHub API to get the information from a given account via gRPC protocol and return a JSON embeded to the client using REST protocol
 
 ## How to run this example
 
