@@ -1,6 +1,6 @@
 # gRPC github user API
 
-This project uses the GitHub API to get the information from a given account via gRPC protocol and return a JSON embeded to the client using REST protocol, achieving communication between micro-services in Golang
+This project uses the GitHub API to get the information from a given account via gRPC protocol and return a JSON embeded to the client using REST protocol, achieving communication between micro-services in Golang.
 
 ## How to run this example
 
@@ -48,3 +48,6 @@ listURLs: ["https://api.github.com/users/gusirosx",
 ```sh
 $ make generate
 ```
+
+# Links
+Project based on this [tutorial](https://www.youtube.com/watch?v=2b_4QA6D1qw)
